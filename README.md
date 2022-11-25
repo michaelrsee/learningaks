@@ -14,7 +14,7 @@ Different levels of deployment, going from simple to more complex.
 2. Deploying an AKS configuration to an existing virtual network infrastructure 
     a. Example bicep deployment of virtual networking infrastructure  
     b. Security concerns: what is the external facing endpoint?  
-    Application gateway or Azure Firewall?  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application gateway or Azure Firewall?  
     c. Connecting Azure DevOps and deploying containers  
 
 3. AKS-Baseline deployment  
