@@ -9,8 +9,8 @@ Different levels of deployment, going from simple to more complex.
 1. Vanilla marketplace deployment scenario  
     a. Deployment also creates and connects an Azure Container Registry  
     b. Security concerns: these are publicly accessible resources  
-    c. Deploying containers to the cluster from local
-    c. Connecting Azure DevOps and deploying containers, via helm
+    c. Deploying containers to the cluster from local  
+    d. Connecting Azure DevOps and deploying containers, via helm
         
 2. Deploying an AKS configuration to an existing virtual network infrastructure 
     a. Example bicep deployment of virtual networking infrastructure  
