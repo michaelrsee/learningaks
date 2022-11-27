@@ -10,7 +10,7 @@ Azure CLI installed
 Docker CLI installed  
 
 az login  
-az acr login --name <myregistry>  
+az acr login --name "myregistryexample" 
 
 or use docker login:  
 docker login myregistry.azurecr.io  
