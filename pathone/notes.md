@@ -17,11 +17,11 @@ docker login myregistry.azurecr.io
 
 Pull a public Nginx image to local:  
 docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine  
-or  
+or pull from the latest Nginx image from Docker Hub    
 docker pull nginx
 
 Run the container locally:  
-docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine 
+docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine   
 docker run -it --rm -p 8080:80 nginx 
 
 Browse to http://localhost:8080 to view the default web page served by Nginx in the running container.  
