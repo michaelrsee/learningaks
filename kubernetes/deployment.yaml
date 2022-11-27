@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akspathone
+spec:
+  selector:
+    matchLabels:
+      app: akspathone
+  template:
+    metadata:
+      labels:
+        app: akspathone
+    spec:
+      containers:
+        - image: contosocontainerregistry17028/akspathone
+          name: akspathone
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 80
+              name: http
