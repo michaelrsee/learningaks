@@ -129,16 +129,16 @@ Run the two demo applications into the new namespace:
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic  
 kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic  
 
-Make sure you are in the correct namespace context:
-kubectl config set-context --current --namespace=ingress-basic
+Make sure you are in the correct namespace context:  
+kubectl config set-context --current --namespace=ingress-basic  
 
-Create the ingress service:
-kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+Create the ingress service:  
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic  
 
-Verify the connectivity by getting the extrnal ip of the new ingress controller:
-kubectl get svc -n ingress-basic
+Verify the connectivity by getting the extrnal ip of the new ingress controller:  
+kubectl get svc -n ingress-basic  
 
-Open browser and check:
-http://20.42.32.194
-http://20.42.32.194/hello-world-one
-http://20.42.32.194/hello-world-two
+Open browser and check:  
+http://20.42.32.194  
+http://20.42.32.194/hello-world-one  
+http://20.42.32.194/hello-world-two  
