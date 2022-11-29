@@ -85,3 +85,60 @@ kubectl create -f pod-example.yaml
 To confirm that the pod was successfully created using the container image from the ACR, run kubectl describe pod <POD_NAME>, which should show the container image used to create the pod.
 kubectl describe pod pod-example  
 
+# Create and Ingress Controller in your AKS cluster
+
+https://learn.microsoft.com/en-us/azure/aks/ingress-basic?tabs=azure-cli   
+
+https://youtu.be/nuNfCRQ2Yac
+
+Install the latest version of Helm: https://helm.sh/   
+
+Create a new ingress controller namespace:  
+kubectl create namespace ingress-basic  
+
+Add the community based nginx ingress controller to your local helm repo:  
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx  
+
+Run the Ingress create command:
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.service.externalTrafficPolicy=Local
+
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.externalTrafficPolicy=Local
+
+It may take a few minutes for the LoadBalancer IP to be available.
+You can watch the status by running 'kubectl --namespace ingress-basic get services -o wide -w ingress-nginx-controller'  
+
+Validate all the resources that were deployed to the ingress-basic namespace:  
+kubectl get all -n ingress-basic
+
+Now create the path based routing rules using the ingress service:
+Create the aks-hellowworld-one.yaml file and the aks-helloworld-two.yaml files and paste in info from learning path.
+
+Create the hello-world-ingress.yaml file and paste in info from learning patgh.
+
+Run the two demo applications into the new namespace:  
+kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic  
+kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic  
+
+Make sure you are in the correct namespace context:
+kubectl config set-context --current --namespace=ingress-basic
+
+Create the ingress service:
+kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
+
+Verify the connectivity by getting the extrnal ip of the new ingress controller:
+kubectl get svc -n ingress-basic
+
+Open browser and check:
+http://20.42.32.194
+http://20.42.32.194/hello-world-one
+http://20.42.32.194/hello-world-two
