@@ -11,7 +11,8 @@ Docker CLI installed
 
 az login  
 az acr login --name "myregistryexample" 
-sudo az acr login --name acrpathone16649 
+sudo az acr login --name acrpathone29614
+az acr login --name acrpathone29614
 
 or use docker login:  
 docker login myregistry.azurecr.io  
@@ -31,11 +32,13 @@ To stop and remove the container, press Control+C.
 
 Create an alias of the image:  
 docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx  
-sudo docker tag nginx acrpathone16649.azurecr.io/samples/nginx
+sudo docker tag nginx acrpathone29614.azurecr.io/samples/nginx
+docker tag nginx acrpathone29614.azurecr.io/samples/nginx
 
 Push the image to your registry:  
 docker push myregistry.azurecr.io/samples/nginx 
-sudo docker push acrpathone16649.azurecr.io/samples/nginx
+sudo docker push acrpathone29614.azurecr.io/samples/nginx
+docker push acrpathone29614.azurecr.io/samples/nginx
 
 Optional Testing Steps:  
 Pull the image from your registry:  
