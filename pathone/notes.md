@@ -31,9 +31,9 @@ Browse to http://localhost:8080 to view the default web page served by Nginx in 
 To stop and remove the container, press Control+C.  
 
 Create an alias of the image:  
-docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx  
-sudo docker tag nginx acrpathone29614.azurecr.io/samples/nginx
-docker tag nginx acrpathone29614.azurecr.io/samples/nginx
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx    
+sudo docker tag nginx acrpathone29614.azurecr.io/samples/nginx  
+docker tag nginx acrpathone29614.azurecr.io/samples/nginx  
 
 Push the image to your registry:  
 docker push myregistry.azurecr.io/samples/nginx 
@@ -41,7 +41,7 @@ sudo docker push acrpathone29614.azurecr.io/samples/nginx
 docker push acrpathone29614.azurecr.io/samples/nginx
 
 Optional Testing Steps:  
-Pull the image from your registry:  
+Pull the image from your registry:    
 docker pull myregistry.azurecr.io/samples/nginx  
 
 Star the Nginx container:  
