@@ -57,3 +57,31 @@ To remove the image from the Azure Container Registry:
 az acr repository delete --name myregistry --image samples/nginx:latest
 
 # Push an image to an AKS cluster 
+
+https://learn.microsoft.com/en-us/azure/aks/hybrid/deploy-azure-container-registry
+
+For an Ubuntu Linux image, install kubectl via:
+sudo snap install kubectl --classic
+
+Confirm that the image was successfully pushed to the ACR:
+az acr repository list --name <REGISTRY_NAME>.azurecr.io --output table
+az acr repository list --name acrpathone16649 --output table
+
+To deploy your container image from the ACR to your Kubernetes cluster, you need to create Kubernetes Secrets to store your registry credentials. Kubernetes uses an image pull secret to store information needed to authenticate to your registry. To create the pull secret for an ACR, you provide the service principal ID, the password, and the registry URL.
+
+kubectl create secret docker-registry <secret-name> \
+    --namespace <namespace> \
+    --docker-server=<REGISTRY_NAME>.azurecr.io \
+    --docker-username=<appId> \
+    --docker-password=<password>
+
+Get the credentials for the current cluster:
+az aks get-credentials --resource-group <ResourceGroup> --name <AKSClusterName>
+az aks get-credentials --resource-group rg-aks-pathone-32312 --name aks-pathone-23298  
+
+Deploy the pod configuration to the Kubernetes cluster:
+kubectl create -f pod-example.yaml
+
+To confirm that the pod was successfully created using the container image from the ACR, run kubectl describe pod <POD_NAME>, which should show the container image used to create the pod.
+kubectl describe pod pod-example
+

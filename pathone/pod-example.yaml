@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-example
+  namespace: default
+spec:
+  containers:
+    - name: nginx
+      image: acrpathone16649.azurecr.io/samples/nginx:latest
+      imagePullPolicy: IfNotPresent
+  imagePullSecrets:
+    - name: acr-secret
