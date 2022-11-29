@@ -11,6 +11,7 @@ Docker CLI installed
 
 az login  
 az acr login --name "myregistryexample" 
+sudo az acr login --name acrpathone16649 
 
 or use docker login:  
 docker login myregistry.azurecr.io  
@@ -18,7 +19,7 @@ docker login myregistry.azurecr.io
 Pull a public Nginx image to local:  
 docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine  
 or pull from the latest Nginx image from Docker Hub    
-docker pull nginx
+sudo docker pull nginx
 
 Run the container locally:  
 docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine   
@@ -30,11 +31,11 @@ To stop and remove the container, press Control+C.
 
 Create an alias of the image:  
 docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx  
-docker tag nginx acrpathone29895.azurecr.io/samples/nginx
+sudo docker tag nginx acrpathone16649.azurecr.io/samples/nginx
 
 Push the image to your registry:  
 docker push myregistry.azurecr.io/samples/nginx 
-docker push acrpathone29895.azurecr.io/samples/nginx
+sudo docker push acrpathone16649.azurecr.io/samples/nginx
 
 Optional Testing Steps:  
 Pull the image from your registry:  
