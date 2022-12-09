@@ -21,3 +21,6 @@ Different levels of deployment, going from simple to more complex.
 3. AKS-Baseline deployment  
 
 4. Custom deployment  
+
+5. Notes:  
+https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html#steps-to-get-the-oidc-issuer-url-from-a-generic-managed-cluster
