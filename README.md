@@ -23,4 +23,6 @@ Different levels of deployment, going from simple to more complex.
 4. Custom deployment  
 
 5. Notes:  
-https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html#steps-to-get-the-oidc-issuer-url-from-a-generic-managed-cluster
+https://azure.github.io/azure-workload-identity/docs/installation/managed-clusters.html#steps-to-get-the-oidc-issuer-url-from-a-generic-managed-cluster  
+
+https://goodworkaround.com/2021/12/21/another-deep-dive-into-azure-ad-workload-identity-federation-using-github-actions/
